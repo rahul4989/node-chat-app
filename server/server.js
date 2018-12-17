@@ -12,6 +12,19 @@ var io= socketIO(server);
 io.on('connection', (socket)=>{
     console.log('new user connected');
 })
+
+socket.emit('newMessage',{
+    from:'mike@gmail.com',
+    text:'hey',
+    createAt:123
+})
+
+socket.on('createMessage',(message)=>{
+    console.log('createMessage',message);
+})
+socket.on('disconnect',()=>{
+    console.log('disconnected')
+})
 server.listen(port,()=>{
     console.log(`server on ${port}`);
 })
