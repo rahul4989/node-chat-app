@@ -17,7 +17,7 @@ socket.on('newMessage', function(message){
     $('#messages').append(li);
 })
 
-$('#name').on('submit',function(e){
+$('.name').on('submit',function(e){
     e.preventDefault();
 socket.emit('createUser',{
     from:$('[name=name]').val(),
